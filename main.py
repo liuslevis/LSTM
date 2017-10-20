@@ -10,7 +10,7 @@ from keras.callbacks import ModelCheckpoint
 from keras.utils import np_utils
 
 raw_text = None
-with open('./data/raw.txt') as f:
+with open('./data/raw_small.txt') as f:
     raw_text = f.read().lower()
 
 chars = sorted(list(set(raw_text)))

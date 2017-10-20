@@ -1,6 +1,22 @@
 # LSTM
 playground
 
+Dataset: https://www.kaggle.com/snap/amazon-fine-food-reviews
+
 ```
-wget https://storage.googleapis.com/kaggle-datasets/18/2157/amazon-fine-food-reviews.zip?GoogleAccessId=datasets@kaggle-161607.iam.gserviceaccount.com&Expires=1508744805&Signature=eVFYJDhjWbq8o5xdnHyKe4LWULEQkJS72rjK59XRNkKs8lxfaXqotgOPXpoRGq5DLJcYdfiH1WHAZblVBQvI%2Fn2mat87adeK%2BTG7r2FnfEOya8ZeVYJxAGcUdAQTOC2If5qAfIb1xovePkX8stFXvutgeh1kmoTJqbSg0j7xFVJjnXEQr3%2F1Faz8DbkOScVsMmEq0OuGFPuaG7HDidzXZbdgcGhJ9XekXFfY6yBfdxoYD84vkjjdatqQPJxxtp6tVyFawxj8MbK44B%2Foanc5bj7ZztuPtLnuDLi9zXL%2B7xzlx9BFSmtLWJ0kMOEu5Gj0%2FtsJY%2B%2FB0jGn5iJ2IV1%2B9A%3D%3D
+# macOS
+
+ssh -R 52698:localhost:52698 -i "davidlau-aws-gpu.pem" ubuntu@ubuntu@ec2-13-115-82-114.ap-northeast-1.compute.amazonaws.com
+
+# AWS Deeplearning Ubuntu 16.04 64bit
+sudo wget -O /usr/local/bin/rsub \https://raw.github.com/aurora/rmate/master/rmate
+sudo chmod a+x /usr/local/bin/rsub
+sudo pip3 install --upgrade keras
+sudo apt-get install python3-tk
+
+git clone https://github.com/liuslevis/LSTM
+cd LSTM
+rsub main.py
+
+ipython3 main.py
 ```
