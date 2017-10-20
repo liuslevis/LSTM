@@ -24,6 +24,7 @@ seq_length = 100
 dataX = []
 dataY = []
 for i in range(0, n_chars - seq_length, 1):
+    if i % 10000 == 0: print('prep X: %d/%d' % (i, n_chars))
     seq_in = raw_text[i:i + seq_length]
     seq_out = raw_text[i + seq_length]
     dataX.append([char_to_int[char] for char in seq_in])
@@ -44,7 +45,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam')
 
 model.fit(X, y, 
     epochs=20, 
-    batch_size=128, 
+    batch_size=1024 * 100, 
     callbacks=[
         ModelCheckpoint("data/weights-{epoch:02d}-{loss:.4f}.hdf5", monitor='loss', verbose=1, save_best_only=True, mode='min'),
     ])
