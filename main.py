@@ -45,7 +45,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam')
 
 model.fit(X, y, 
     epochs=20, 
-    batch_size=1024 * 100, 
+    batch_size=1024,
     callbacks=[
         ModelCheckpoint("data/weights-{epoch:02d}-{loss:.4f}.hdf5", monitor='loss', verbose=1, save_best_only=True, mode='min'),
     ])
