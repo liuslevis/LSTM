@@ -73,7 +73,7 @@ X = np.reshape(dataX, (n_patterns, seq_length, 1))
 y = np_utils.to_categorical(dataY)
 
 model = Sequential()
-model.add(LSTM(1024*10, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
+model.add(LSTM(1024, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
 # model.add(Flatten())
 # model.add(LSTM(64))
 model.add(Dropout(0.5))
@@ -82,7 +82,7 @@ model.add(Dense(y.shape[1], activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam')
 
 model.fit(X, y, 
-    epochs=5,
+    epochs=20,
     batch_size=128,
     callbacks=[
         # EarlyStopping(monitor='loss', min_delta=0, patience=1, verbose=0, mode='auto'),
